@@ -3,7 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Location;
-//use App\Form\LocationType;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -14,22 +14,22 @@ class LocationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('city', TextType::class,[
-                'label' => 'Ville: ',
-                'required' => true
-            ])
-            ->add('street',TextType::class,[
-                'label' => 'N° de voie et rue: ',
-                'required' => true
-            ] )
-            ->add('zipCode', TextType::class,[
-                'label' => 'Code postale: ',
-                'required' => true
-            ] )
-            ->add('supplement', TextType::class,[
-                'label' => 'Complément( interphone, étage, etc... )',
-                'required' => true
-            ] )
+        ->add('city', TextType::class,[
+            'label' => 'Ville: ',
+            'required' => true
+        ])
+        ->add('street',TextType::class,[
+            'label' => 'N° de voie et rue: ',
+            'required' => true
+        ] )
+        ->add('zipCode', TextType::class,[
+            'label' => 'Code postale: ',
+            'required' => true
+        ] )
+        ->add('supplement', TextType::class,[
+            'label' => 'Complément( interphone, étage, etc... )',
+            'required' => true
+        ] )
         ;
     }
 

@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\User;
+
+
 use App\Form\LocationType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -45,7 +47,7 @@ class RegistrationType extends AbstractType
                 'label' => 'Nom: ',
                 'required' => true
             ])
-            ('location', LocationType::class,[
+            ->add('Location', LocationType::class,[
                 'label' => 'Votre adresse:'
             ])
             ->add('send', SubmitType::class,[
