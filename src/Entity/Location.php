@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\LocationRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\LocationRepository;
+use Gedmo\Mapping\Annotation\Timestampable;
 
 #[ORM\Entity(repositoryClass: LocationRepository::class)]
 class Location
