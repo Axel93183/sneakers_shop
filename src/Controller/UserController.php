@@ -13,6 +13,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class UserController extends AbstractController
 {
+    //POUR S INSCRIRE
     #[Route('/inscription', name: 'app_user_registration')]
     public function registration(Request $request,UserPasswordHasherInterface $hasher,UserRepository $repository): Response
     {
@@ -42,12 +43,12 @@ class UserController extends AbstractController
         ]);
     }
 
-    #[Route('/home', name: 'app_user_home')]
-    public function home():Response{
-        return $this->render('user/home.html.twig', [
-            'controller_name' => 'Axel GMX',
-        ]);
-    }
+    // #[Route('/home', name: 'app_user_home')]
+    // public function home():Response{
+    //     return $this->render('user/home.html.twig', [
+    //         'controller_name' => 'Sneakers\' Shop ',
+    //     ]);
+    // }
 
     #[Route(path: '/login', name: 'app_login')]
     public function login(AuthenticationUtils $authenticationUtils): Response

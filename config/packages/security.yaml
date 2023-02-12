@@ -19,7 +19,7 @@ security:
             custom_authenticator: App\Security\AppAuthenticator
             logout:
                 path: app_logout
-                # where to redirect after logout
+                # where to redirect after logout (ICI)
                 target: app_user_home
 
             # activate different ways to authenticate

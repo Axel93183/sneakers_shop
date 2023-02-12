@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="div1">
+    <h1>Welcome to {{ controller_name }}! ✅</h1>
+
+    Friendly message:
+    <ul>
+        <li>Pour vous inscrire veuillez cliquer sur <code><a href="{{ path('app_user_registration')  }}">Inscription: src/Controller/UserController.php</a></code></li>
+        <li>Pour vous connecter veuillez cliquer sur <code><a href="{{  path('app_login')  }}">Se connecter: src/Controller/UserController.php</a></code></li>
+    </ul>
+    
+</div>
+
+
+{# sneakers de $sneakers dans la méthode de SneakerController en tant que 'controller_name'
+et sneaker (min sans -s-) peut prendre n'importe quelle appellation #}
+   {% for sneaker in sneakers %}
+    <div class="div-sneaker">
+        <h3> {{ sneaker.name }} </h3>
+        {% if sneaker.imageUrl %}
+        <p>
+            <img src="{{ sneaker.imageUrl }}" alt="{{ sneaker.name }}"/>
+        </p>
+
+        {% endif %}
+        <p> {{ sneaker.description }} </p>
+        <p>Prix: {{ sneaker.price }} €</p>
+    <a href="">Ajouter au panier </a>
+    </div>
+
+  
+
+   {% endfor %}
+
+{% endblock %}

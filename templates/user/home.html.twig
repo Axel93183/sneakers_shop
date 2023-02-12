@@ -9,15 +9,19 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Welcome to {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
+    Friendly message:
     <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/LENOVO/Desktop/Pro/Doranco/PROJET SYMFONY/Sneakers_Shop/src/Controller/UserController.php'|file_link(0) }}">src/Controller/UserController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/LENOVO/Desktop/Pro/Doranco/PROJET SYMFONY/Sneakers_Shop/templates/user/home.html.twig'|file_link(0) }}">templates/user/home.html.twig</a></code></li>
+        <li>Pour vous inscrire veuillez cliquer sur <code><a href="{{ path('app_user_registration')  }}">Inscription src/Controller/UserController.php</a></code></li>
+        <li>Pour vous connecter veuillez cliquer sur <code><a href="{{  path('app_login')  }}">Se connecter</a></code></li>
     </ul>
-
+{# <p>
 <a href="{{ path('app_user_registration') }}">Inscription</a>
+</p>
+<p>
+<a href="{{ path('app_login') }}">Se connecter</a>
+</p> #}
 
 
 </div>
