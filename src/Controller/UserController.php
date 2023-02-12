@@ -34,7 +34,7 @@ class UserController extends AbstractController
             //Enregistrer l'utilisateur dans la base de données
             $repository->save($user, true);
             //redirection vers la page d'accueil
-            return $this->redirectToRoute('app_user_home');
+            return $this->redirectToRoute('app_sneaker_home');
                     
     
          }

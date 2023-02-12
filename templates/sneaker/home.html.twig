@@ -20,9 +20,9 @@ et sneaker (min sans -s-) peut prendre n'importe quelle appellation #}
     <div class="div-sneaker">
         <h3> {{ sneaker.name }} </h3>
         {% if sneaker.imageUrl %}
-        <p>
-            <img src="{{ sneaker.imageUrl }}" alt="{{ sneaker.name }}"/>
-        </p>
+        
+            <img src="{{sneaker.imageUrl}}" alt="{{ sneaker.name }}">
+        
 
         {% endif %}
         <p> {{ sneaker.description }} </p>
