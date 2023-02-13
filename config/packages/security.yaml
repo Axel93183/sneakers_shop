@@ -20,7 +20,7 @@ security:
             logout:
                 path: app_logout
                 # where to redirect after logout (ICI)
-                target: app_user_home
+                target: app_sneaker_home
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall

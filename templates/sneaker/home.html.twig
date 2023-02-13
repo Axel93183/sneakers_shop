@@ -1,15 +1,34 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Page d'accueil{% endblock %}
+
 {% block body %}
+
+<div class="hero-unit">
+
+    <div class="hero-bg-image">
+
+        <img src="img/banner.jpg"/>
+
+        <div class="hero-bg-image-frame"></div>
+
+    </div>
+
+    <h1> Sneakers' Shop </h1>
+
+    
+
+</div>
 
 <div class="div1">
     <h1>Welcome to {{ controller_name }}! ✅</h1>
+    <p class= "hero-subtitle"> Les plus belles Sneakers à portée de click </p>
 
-    Friendly message:
+    {# Friendly message:
     <ul>
         <li>Pour vous inscrire veuillez cliquer sur <code><a href="{{ path('app_user_registration')  }}">Inscription: src/Controller/UserController.php</a></code></li>
         <li>Pour vous connecter veuillez cliquer sur <code><a href="{{  path('app_login')  }}">Se connecter: src/Controller/UserController.php</a></code></li>
-    </ul>
+    </ul> #}
     
 </div>
 
@@ -27,7 +46,9 @@ et sneaker (min sans -s-) peut prendre n'importe quelle appellation #}
         {% endif %}
         <p> {{ sneaker.description }} </p>
         <p>Prix: {{ sneaker.price }} €</p>
-    <a href="">Ajouter au panier </a>
+    <button class="btn btn-lg btn-primary" type="button" >
+      <a class="btn" href="#">Ajouter au panier</a>
+    </button>
     </div>
 
   
