@@ -46,9 +46,11 @@ et sneaker (min sans -s-) peut prendre n'importe quelle appellation #}
         {% endif %}
         <p> {{ sneaker.description }} </p>
         <p>Prix: {{ sneaker.price }} €</p>
+
     <button class="btn btn-lg btn-primary" type="button" >
-      <a class="btn" href="#">Ajouter au panier</a>
+      <a class="btn" href="{{ path('app_basket_ajoutArticle', {id: sneaker.id})}}">Ajouter au panier</a>
     </button>
+
     </div>
 
   

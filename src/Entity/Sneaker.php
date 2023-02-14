@@ -2,11 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\SneakerRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use DateTimeInterface;
+use App\Entity\Article;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\SneakerRepository;
+use Doctrine\Common\Collections\Collection;
+use Gedmo\Mapping\Annotation\Timestampable;
+use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: SneakerRepository::class)]
 class Sneaker
@@ -34,7 +37,7 @@ class Sneaker
 
     #[Timestampable(on: 'update')]
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $updatedAt = null;
+    private ?DateTimeInterface $updatedAt = null;
 
     #[ORM\OneToMany(mappedBy: 'sneaker', targetEntity: Article::class)]
     private Collection $articles;

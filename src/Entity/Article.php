@@ -2,9 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\ArticleRepository;
+use App\Entity\Basket;
+use App\Entity\Sneaker;
+use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ArticleRepository;
+use Gedmo\Mapping\Annotation\Timestampable;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
@@ -25,7 +29,7 @@ class Article
 
     #[Timestampable(on: 'create')]
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $createdAt = null;
+    private ?DateTimeInterface $createdAt = null;
 
     #[Timestampable(on: 'update')]
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]

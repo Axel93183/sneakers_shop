@@ -2,11 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\BasketRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\User;
+use DateTimeInterface;
+use App\Entity\Article;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\BasketRepository;
+use Doctrine\Common\Collections\Collection;
+use Gedmo\Mapping\Annotation\Timestampable;
+use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: BasketRepository::class)]
 class Basket
@@ -24,7 +28,7 @@ class Basket
 
     #[Timestampable(on: 'create')]
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $createdAt = null;
+    private ?DateTimeInterface $createdAt = null;
 
     #[Timestampable(on: 'update')]
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
