@@ -2,9 +2,7 @@
 
 namespace App\Entity;
 
-use App\Entity\User;
-use DateTimeInterface;
-use App\Entity\Article;
+
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\BasketRepository;
@@ -22,9 +20,6 @@ class Basket
 
     #[ORM\OneToOne(inversedBy: 'basket', cascade: ['persist', 'remove'])]
     private ?User $user = null;
-
-    #[ORM\OneToMany(mappedBy: 'basket', targetEntity: Article::class)]
-    private Collection $articles;
 
     #[Timestampable(on: 'create')]
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
@@ -56,7 +51,31 @@ class Basket
         return $this;
     }
 
-    /**
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(?\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+     /**
      * @return Collection<int, Article>
      */
     public function getArticles(): Collection
@@ -86,27 +105,13 @@ class Basket
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getTotal() : float
     {
-        return $this->createdAt;
-    }
+        $total= 0.0;
+        foreach($this->articles as $article){
+            $total += $article->getTotal(); // pour chaque article je récupére la totale selon le prix et la quantité
+        }
 
-    public function setCreatedAt(?\DateTimeInterface $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    public function getUpdatedAt(): ?\DateTimeInterface
-    {
-        return $this->updatedAt;
-    }
-
-    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
+        return $total;
     }
 }

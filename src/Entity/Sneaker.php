@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use DateTimeInterface;
-use App\Entity\Article;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\SneakerRepository;
@@ -39,8 +38,8 @@ class Sneaker
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?DateTimeInterface $updatedAt = null;
 
-    #[ORM\OneToMany(mappedBy: 'sneaker', targetEntity: Article::class)]
-    private Collection $articles;
+    #[ORM\OneToOne(mappedBy: 'sneaker', cascade: ['persist', 'remove'])]
+    private ?Article $articles = null;
 
     public function __construct()
     {

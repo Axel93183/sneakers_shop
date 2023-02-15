@@ -37,19 +37,20 @@
 et sneaker (min sans -s-) peut prendre n'importe quelle appellation #}
    {% for sneaker in sneakers %}
     <div class="div-sneaker">
-        <h3> {{ sneaker.name }} </h3>
-        {% if sneaker.imageUrl %}
-        
-            <img src="{{sneaker.imageUrl}}" alt="{{ sneaker.name }}">
-        
 
-        {% endif %}
-        <p> {{ sneaker.description }} </p>
-        <p>Prix: {{ sneaker.price }} €</p>
+            <h3> {{ sneaker.name }} </h3>
+                {% if sneaker.imageUrl %}
+                
+                    <img src="{{sneaker.imageUrl}}" alt="{{ sneaker.name }}">
+                
 
-    <button class="btn btn-lg btn-primary" type="button" >
-      <a class="btn" href="{{ path('app_basket_ajoutArticle', {id: sneaker.id})}}">Ajouter au panier</a>
-    </button>
+                {% endif %}
+            <p> {{ sneaker.description }} </p>
+            <p>Prix: {{ sneaker.price }} €</p> 
+
+            {# <button class="btn btn-lg btn-primary" type="button" >
+            <a class="btn" href="{{ path('app_basket_ajoutArticle', {id: sneaker.id})}}">Ajouter au panier</a>
+            </button> #}
 
     </div>
 
